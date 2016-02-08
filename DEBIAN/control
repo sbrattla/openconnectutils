@@ -1,0 +1,9 @@
+Package: openconnectutils
+Version: 1.0-1
+Section: base
+Priority: optional
+Architecture: i386
+Depends: openconnect (>= 5.02-1), network-manager-openconnect (>= 0.9.8.0-1ubuntu2)
+Maintainer: Stian Brattland <stian@octetnest.no>
+Installed-Size: 7728
+Description: This package provides functionality to connect to a Cisco AnyConnect VPN endpoint.
