@@ -1,0 +1,2 @@
+sudo chmod -R 0755 /usr/share/openconnectutils
+sudo chown -R root:root /usr/share/openconnectutils
