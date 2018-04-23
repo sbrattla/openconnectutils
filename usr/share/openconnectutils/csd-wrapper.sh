@@ -1,20 +1,10 @@
 #!/bin/bash
 # Cisco Anyconnect CSD wrapper for OpenConnect
 
-# Enter your vpn host here
-CSD_HOSTNAME=""
-if [[ -z ${CSD_HOSTNAME} ]]
-then
-    echo "Define CSD_HOSTNAME with vpn-host in script text. Exiting."
-    exit 1
-fi
-
 HOSTSCAN_DIR="$HOME/.cisco/hostscan"
 LIB_DIR="$HOSTSCAN_DIR/lib"
 BIN_DIR="$HOSTSCAN_DIR/bin"
-
 BINS=("cscan" "cstub" "cnotify")
-
 
 # parsing command line
 shift
@@ -36,6 +26,12 @@ while [ "$1" ]; do
     shift
 done
 
+CSD_HOSTNAME = $(echo "$URL" | sed -e 's/https\:\/\///g' | sed -e 's/\/.*//g')
+if [[ -z "$CSD_HOSTNAME" ]]
+then
+    echo "Define CSD_HOSTNAME with vpn-host in script text. Exiting."
+    exit 1
+fi
 
 ARCH=$(uname -m)
 
